@@ -1,0 +1,10 @@
+- hosts: node2
+  become: true
+  gather_facts: yes
+
+  tasks:
+   - name: copy war to node host
+     copy: 
+       src: /var/lib/jenkins/workspace/jenkins/war/target/jenkins.war
+       dest: /usr/share/jenkins/jenkins.war
+       mode: 755
