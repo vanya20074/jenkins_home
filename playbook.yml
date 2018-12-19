@@ -2,12 +2,32 @@
   gather_facts: yes
 
   tasks:
+   - name: add repo for java
+     apt_repository:
+       repo: ppa:webupd8team/java
+   
+   - name: Accept Java 8 License
+     become: yes
+     debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+   - name: install oracle java
+     apt:
+      name: oracle-java8-installer
+      state: present
+
    - name: create jenkins folder
      become: true
      file: 
       path: /usr/share/jenkins
       state: directory
       mode: 755
+   - name: create pid dir
+     become: true
+     file: 
+      path: /var/run/jenkins/
+      state: directory
+      mode: 777
+
    - name: copy war to node host
      become: true
      copy: 
