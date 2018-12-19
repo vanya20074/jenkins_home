@@ -3,9 +3,10 @@
 
   tasks:
    - name: create jenkins folder
-     file: /usr/share/jenkins
-     state: directory
-
+     file: 
+      path: /usr/share/jenkins
+      state: directory
+      mode: 755
    - name: copy war to node host
      copy: 
        src: /var/lib/jenkins/workspace/jenkins/war/target/jenkins.war
