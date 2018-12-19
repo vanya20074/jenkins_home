@@ -1,5 +1,4 @@
 - hosts: node2
-  become: true
   gather_facts: yes
 
   tasks:
