@@ -3,6 +3,7 @@
 
   tasks:
    - name: add repo for java
+     become: true
      apt_repository:
        repo: ppa:webupd8team/java
    
