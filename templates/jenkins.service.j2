@@ -1,0 +1,16 @@
+[Unit]
+Description=Jenkins
+[Service]
+User=vagrant
+# The configuration file application.properties should be here:
+#change this to your workspace
+#WorkingDirectory=/home/ubuntu/workspace
+#path to executable. 
+#executable is a bash script which calls jar file
+ExecStart=/usr/bin/daemon --name=jenkins --inherit --env=JENKINS_HOME=/var/lib/jenkins --output=/var/log/jenkins/jenkins.log --pidfile=/var/run/jenkins/jenkins.pid -- /usr/bin/java -Djava.awt.headless=true -jar /usr/share/jenkins/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+#SuccessExitStatus=143
+#TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+#[Install]
+#WantedBy=multi-user.target
