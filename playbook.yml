@@ -34,7 +34,7 @@
 
    - name: copy run script
      copy: 
-       src: files/jenikns.sh
+       src: files/jenkins.sh
        dest: ~/jenkins.sh
        mode: 755
 
