@@ -33,11 +33,10 @@
        mode: 755
 
    - name: copy run script
-     become: false
      copy: 
        src: files/jenkins.sh
-       dest: ~/jenkins.sh
-       mode: 777
+       dest: /root/jenkins.sh
+       mode: 755
 
 #   - name: run jenkins 
 #     command: /usr/bin/daemon --name=jenkins --inherit --env=JENKINS_HOME=/var/lib/jenkins --output=/var/log/jenkins/jenkins.log --pidfile=/var/run/jenkins/jenkins.pid -- /usr/bin/java -Djava.awt.headless=true -jar /usr/share/jenkins/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
