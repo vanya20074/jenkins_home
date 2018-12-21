@@ -33,6 +33,7 @@
        mode: 755
 
    - name: copy run script
+     become: false
      copy: 
        src: files/jenkins.sh
        dest: ~/jenkins.sh
